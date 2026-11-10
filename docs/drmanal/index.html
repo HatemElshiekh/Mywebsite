@@ -662,7 +662,7 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
         btn.textContent = 'Send updated choices';
         try { localStorage.setItem(KEY + '-sent', '1'); } catch(e){}
       })
-      .catch(function(){ st.className = 'status err'; st.textContent = 'Could not send from this preview. Please use the shared website link.'; })
+      .catch(function(e){ st.className = 'status err'; var m = (e && e.message) || ''; st.textContent = /activat/i.test(m) ? 'Almost there: the email address must be activated first. Please try again in a few minutes.' : (location.hostname.indexOf('github.io') > -1 ? 'Could not send right now (' + m + '). Please try again.' : 'Could not send from this preview. Please use the shared website link.'); })
       .then(function(){ btn.disabled = false; });
   });
   try { if (localStorage.getItem(KEY + '-sent')) document.getElementById('sendbtn').textContent = 'Send updated choices'; } catch(e){}
