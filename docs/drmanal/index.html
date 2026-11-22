@@ -303,6 +303,27 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
 .sendbar button:hover{translate:0 -2px;box-shadow:0 8px 20px rgba(30,42,50,.2)}
 .sendbar button:disabled{opacity:.6;cursor:wait}
 @media (max-width:760px){.cgrid{grid-template-columns:1fr}}
+
+.bsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.bcard{border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:4px;background:#fff}
+.bcard span{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.bcard b{font:800 26px var(--display);font-variant-numeric:tabular-nums}
+.bcard small{font-size:13px;color:var(--muted)}
+.bcard.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+.bcard.dark span,.bcard.dark small{color:#B9C3C9}
+.btable{margin-top:16px;overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.btable table{width:100%;min-width:680px;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.btable th,.btable td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+.btable th:first-child,.btable td:first-child{text-align:left}
+.btable thead th{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;background:#FAFBFB}
+.btable tr.shoot td{background:var(--p1-t)}
+.btable tfoot td{font-weight:700;background:var(--ink);color:#fff;border-bottom:0}
+.bgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.bbox{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.bbox h3{font-size:16px;margin-bottom:10px}
+.bbox ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.bbox p{margin:0;font-size:14px}
+@media (max-width:760px){.bsum,.bgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -325,7 +346,7 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
 
 <section class="screen" data-anim>
   <div class="wrap">
-    <h2 class="ai">Your year</h2><p class="intro ai" style="--i:1">Your investment level decides the pace and the scope of each phase.</p>
+    <h2 class="ai">Your year</h2>
     <div class="timeline scroll-x ai" style="--i:1">
       <svg viewBox="0 0 1000 150" role="img" aria-label="Plan in weeks 1 to 2, then four phases across 12 months">
         <g id="ticks"></g>
@@ -380,25 +401,62 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
   </div>
 </section>
 
-<section class="screen" data-anim id="choices-sec">
+<section class="screen" data-anim id="budget-sec">
   <div class="wrap">
-    <h2 class="ai">Your choices</h2>
-    <p class="intro ai" style="--i:1">Pick one option for each item, or let us recommend. Your choices set the scope and the cost. You can change them and send again at any time.</p>
-    <form name="choices" novalidate id="choices" class="choices">
-      <input type="hidden" name="form-name" value="choices">
-      <p hidden><label>Leave empty <input name="bot-field"></label></p>
-      <div class="cgrid"><fieldset class="ci ai" style="--i:2;--tint:var(--p1-t);--deep:var(--p1)"><legend><span class="ph">Phase 1</span>Visual identity</legend><div class="picks"><label class="pick"><input type="radio" name="visual_identity" value="Full brand identity: logo, brand elements and photoshoot" required><span>Full brand identity: logo, brand elements and photoshoot</span></label><label class="pick"><input type="radio" name="visual_identity" value="Photoshoot with simple designs and a logo icon"><span>Photoshoot with simple designs and a logo icon</span></label><label class="pick rec"><input type="radio" name="visual_identity" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:3;--tint:var(--p1-t);--deep:var(--p1)"><legend><span class="ph">Phase 1</span>Website</legend><div class="picks"><label class="pick"><input type="radio" name="website" value="One simple page" required><span>One simple page</span></label><label class="pick"><input type="radio" name="website" value="Website with booking"><span>Website with booking</span></label><label class="pick rec"><input type="radio" name="website" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:4;--tint:var(--p2-t);--deep:var(--p2)"><legend><span class="ph">Phase 2</span>Video production</legend><div class="picks"><label class="pick"><input type="radio" name="video_production" value="Production house" required><span>Production house</span></label><label class="pick"><input type="radio" name="video_production" value="Studio rent with light editing"><span>Studio rent with light editing</span></label><label class="pick"><input type="radio" name="video_production" value="Mobile videos"><span>Mobile videos</span></label><label class="pick rec"><input type="radio" name="video_production" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:5;--tint:var(--p2-t);--deep:var(--p2)"><legend><span class="ph">Phase 2</span>Content writing</legend><div class="picks"><label class="pick"><input type="radio" name="content_writing" value="Your ideas, written by a content writer" required><span>Your ideas, written by a content writer</span></label><label class="pick"><input type="radio" name="content_writing" value="You write and manage it"><span>You write and manage it</span></label><label class="pick rec"><input type="radio" name="content_writing" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:6;--tint:var(--p2-t);--deep:var(--p2)"><legend><span class="ph">Phase 2</span>Moderator and customer service</legend><div class="picks"><label class="pick"><input type="radio" name="moderator" value="None, you manage it" required><span>None, you manage it</span></label><label class="pick"><input type="radio" name="moderator" value="Part-time"><span>Part-time</span></label><label class="pick"><input type="radio" name="moderator" value="Full-time"><span>Full-time</span></label><label class="pick rec"><input type="radio" name="moderator" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:7;--tint:var(--p2-t);--deep:var(--p2)"><legend><span class="ph">Phase 2</span>Paid ads (media buying) per month</legend><div class="picks"><label class="pick"><input type="radio" name="paid_ads" value="Low: under AED 2k" required><span>Low: under AED 2k</span></label><label class="pick"><input type="radio" name="paid_ads" value="Medium: AED 3k to 5k"><span>Medium: AED 3k to 5k</span></label><label class="pick"><input type="radio" name="paid_ads" value="High: AED 6k and above"><span>High: AED 6k and above</span></label><label class="pick rec"><input type="radio" name="paid_ads" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:8;--tint:var(--p3-t);--deep:var(--p3)"><legend><span class="ph">Phase 3</span>Workshops and programs</legend><div class="picks"><label class="pick"><input type="radio" name="workshops" value="Online" required><span>Online</span></label><label class="pick"><input type="radio" name="workshops" value="In person with a venue"><span>In person with a venue</span></label><label class="pick"><input type="radio" name="workshops" value="Later"><span>Later</span></label><label class="pick rec"><input type="radio" name="workshops" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:9;--tint:var(--p3-t);--deep:var(--p3)"><legend><span class="ph">Phase 3</span>Parent app</legend><div class="picks"><label class="pick"><input type="radio" name="parent_app" value="Phase 3" required><span>Phase 3</span></label><label class="pick"><input type="radio" name="parent_app" value="Phase 4"><span>Phase 4</span></label><label class="pick"><input type="radio" name="parent_app" value="Later, to be discussed"><span>Later, to be discussed</span></label><label class="pick rec"><input type="radio" name="parent_app" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:10;--tint:var(--p4-t);--deep:var(--p4)"><legend><span class="ph">Phase 4</span>PR agency</legend><div class="picks"><label class="pick"><input type="radio" name="pr_agency" value="Phase 3" required><span>Phase 3</span></label><label class="pick"><input type="radio" name="pr_agency" value="Phase 4"><span>Phase 4</span></label><label class="pick rec"><input type="radio" name="pr_agency" value="You recommend"><span>You recommend</span></label></div></fieldset><fieldset class="ci ai" style="--i:10;--tint:var(--plan-t);--deep:var(--plan)"><legend><span class="ph">All phases</span>Project management</legend><div class="picks"><label class="pick"><input type="radio" name="project_management" value="High: follow-up meetings twice a week" required><span>High: follow-up meetings twice a week</span></label><label class="pick"><input type="radio" name="project_management" value="Medium: weekly follow-up meeting"><span>Medium: weekly follow-up meeting</span></label><label class="pick"><input type="radio" name="project_management" value="Low: every two weeks or monthly"><span>Low: every two weeks or monthly</span></label><label class="pick rec"><input type="radio" name="project_management" value="You recommend"><span>You recommend</span></label></div></fieldset></div>
-      <label class="notes ai" style="--i:10"><span>Anything else we should know</span><textarea id="notes" name="notes" rows="3"></textarea></label>
-      <div class="sendbar">
-        <div class="count"><span><b id="cnt">0</b> of 10 chosen</span><div class="meter"><i id="meter"></i></div></div>
-        <span id="status" class="status" role="status"></span>
-        <button type="submit" id="sendbtn">Send my choices</button>
+    <h2 class="ai">Your budget, year 1</h2>
+    <p class="intro ai" style="--i:1">Built on your choices. Amounts in AED, before VAT.</p>
+
+    <div class="bsum">
+      <div class="bcard ai" style="--i:2"><span>Most months</span><b>AED 5,000</b><small>Our fee and paid ads</small></div>
+      <div class="bcard ai" style="--i:3"><span>Shoot months: 4, 7, 10</span><b>AED 6,500</b><small>Plus one studio shoot</small></div>
+      <div class="bcard dark ai" style="--i:4"><span>Year 1 total</span><b>AED 66,750 to 67,300</b><small>Depending on the final logo cost</small></div>
+    </div>
+
+    <div class="btable ai" style="--i:5"><table>
+      <thead><tr><th>Month</th><th>Our fee</th><th>Studio shoot</th><th>Paid ads</th><th>Logo</th><th>Domain</th><th>Total</th></tr></thead>
+      <tbody><tr class="shoot"><td>Month 1</td><td>3,000</td><td>1,500</td><td>1,000</td><td>1,500 to 2,000</td><td>250 to 300</td><td><b>7,250 to 7,800</b></td></tr><tr><td>Month 2</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 3</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr class="shoot"><td>Month 4</td><td>3,000</td><td>1,500</td><td>2,000</td><td></td><td></td><td><b>6,500</b></td></tr><tr><td>Month 5</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 6</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr class="shoot"><td>Month 7</td><td>3,000</td><td>1,500</td><td>2,000</td><td></td><td></td><td><b>6,500</b></td></tr><tr><td>Month 8</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 9</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr class="shoot"><td>Month 10</td><td>3,000</td><td>1,500</td><td>2,000</td><td></td><td></td><td><b>6,500</b></td></tr><tr><td>Month 11</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 12</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr></tbody>
+      <tfoot><tr><td>Year 1</td><td>36,000</td><td>6,000</td><td>23,000</td><td>1,500 to 2,000</td><td>250 to 300</td><td><b>66,750 to 67,300</b></td></tr></tfoot>
+    </table></div>
+
+    <div class="bgrid">
+      <div class="bbox ai" style="--i:6">
+        <h3>Our fee, AED 3,000 a month, covers</h3>
+        <ul>
+          <li>Setting up and running your accounts</li>
+          <li>Paid ads management and SEO</li>
+          <li>Building your website, with the AI tools we need</li>
+          <li>Writing your content from your ideas, with a content writer under our supervision</li>
+          <li>Directing your brand identity and logo</li>
+          <li>Directing your studio shoots and the editing</li>
+        </ul>
       </div>
-    </form>
+      <div class="bbox ai" style="--i:7">
+        <h3>How each cost works</h3>
+        <ul>
+          <li><b>Studio shoot:</b> AED 1,500 every 3 months, at least 30 videos each time</li>
+          <li><b>Paid ads:</b> AED 2,000 a month, starting in week 3, so AED 1,000 in month 1</li>
+          <li><b>Logo:</b> AED 1,500 to 2,000 once, and it can be less depending on the revisions</li>
+          <li><b>Domain:</b> 5 years paid once. Hosting is free in year 1</li>
+        </ul>
+      </div>
+      <div class="bbox ai" style="--i:8">
+        <h3>Not included yet</h3>
+        <ul>
+          <li>Video editing, cost to be set</li>
+          <li>PR agency, from Phase 3</li>
+          <li>Venue for in-person workshops</li>
+          <li>Parent app, planned for later</li>
+        </ul>
+      </div>
+      <div class="bbox ai" style="--i:9">
+        <h3>Our weekly meeting</h3>
+        <p>Two hours every week. If a meeting is cancelled, its hours are kept as credit: extra work, or urgent meetings when we need to discuss a change or a new step.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer class="wrap">Cost ranges are indicative, in AED per month before VAT.</footer>
+<footer class="wrap">All amounts in AED, before VAT.</footer>
 </main>
 <main id="v-resources" hidden>
   <div class="wrap res">
@@ -532,7 +590,6 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
       + '</div>'
       + (p.tools ? '<div class="foot ai" style="--i:'+(n+4)+'">'+chips(p.tools)+'</div>' : '')
       + '<div class="outcome ai" style="--i:'+(n+5)+'">'+ic.ok+p.out+'</div>'
-      + '<div class="invest ai" style="--i:'+(n+6)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17a8 8 0 1 1 16 0"/><path class="needle" d="M12 17l4-5"/></svg><div><b>'+p.cost+'</b><span>'+(p.more || 'Your investment level sets the pace and scope of every phase.')+'</span></div></div>'
       + '</div></section>';
   }
   document.getElementById('plan').outerHTML = section(plan);
@@ -622,50 +679,6 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
   tabBtns.forEach(function(b){ b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try { history.replaceState(null, '', v === 'resources' ? '#resources' : '#'); } catch(e){} view(v); }); });
   addEventListener('hashchange', function(){ view(location.hash === '#resources' ? 'resources' : 'roadmap'); });
   if (location.hash === '#resources') view('resources');
-
-  /* choices form: progress, remember, send (Netlify Forms) */
-  var form = document.getElementById('choices'), KEY = 'manal-choices';
-  var groups = Array.prototype.slice.call(form.querySelectorAll('fieldset.ci'));
-  function updateCount(){
-    var n = groups.filter(function(g){ return g.querySelector('input:checked'); }).length;
-    document.getElementById('cnt').textContent = n;
-    document.getElementById('meter').style.width = (n / groups.length * 100) + '%';
-  }
-  function saveLocal(){
-    var d = {}; new FormData(form).forEach(function(v,k){ if (k !== 'form-name' && k !== 'bot-field') d[k] = v; });
-    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){}
-  }
-  try {
-    var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
-    Object.keys(saved).forEach(function(k){
-      if (k === 'notes') { document.getElementById('notes').value = saved[k]; return; }
-      form.querySelectorAll('input[name="'+k+'"]').forEach(function(r){ if (r.value === saved[k]) r.checked = true; });
-    });
-    if (localStorage.getItem(KEY + '-sent')) document.getElementById('status').textContent = 'Sent before. Change anything and send again.';
-  } catch(e){}
-  updateCount();
-  form.addEventListener('change', function(){ updateCount(); saveLocal(); });
-  form.addEventListener('input', saveLocal);
-  form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    var missing = groups.filter(function(g){ return !g.querySelector('input:checked'); });
-    if (missing.length) { var st0 = document.getElementById('status'); st0.className = 'status err'; st0.textContent = 'Please choose an option for every item (' + missing.length + ' left).'; missing[0].scrollIntoView({behavior:'smooth', block:'center'}); return; }
-    var st = document.getElementById('status'), btn = document.getElementById('sendbtn');
-    st.className = 'status'; st.textContent = 'Sending...'; btn.disabled = true;
-    var data = {_subject:'Dr. Manal Adi: roadmap choices', _template:'table'};
-    new FormData(form).forEach(function(v,k){ if (k !== 'form-name' && k !== 'bot-field') data[k] = v; });
-    if (form.querySelector('[name="bot-field"]').value) { btn.disabled = false; return; }
-    fetch('https://formsubmit.co/ajax/hatemelshiekho@gmail.com', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'}, body:JSON.stringify(data)})
-      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status); }); })
-      .then(function(){
-        st.textContent = 'Sent. Thank you. You can change your choices and send again.';
-        btn.textContent = 'Send updated choices';
-        try { localStorage.setItem(KEY + '-sent', '1'); } catch(e){}
-      })
-      .catch(function(e){ st.className = 'status err'; var m = (e && e.message) || ''; st.textContent = /activat/i.test(m) ? 'Almost there: the email address must be activated first. Please try again in a few minutes.' : (location.hostname.indexOf('github.io') > -1 ? 'Could not send right now (' + m + '). Please try again.' : 'Could not send from this preview. Please use the shared website link.'); })
-      .then(function(){ btn.disabled = false; });
-  });
-  try { if (localStorage.getItem(KEY + '-sent')) document.getElementById('sendbtn').textContent = 'Send updated choices'; } catch(e){}
 
   /* timeline segments jump to their phase */
   document.querySelectorAll('rect[data-go]').forEach(function(r){
