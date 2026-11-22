@@ -324,13 +324,54 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
 .bbox ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
 .bbox p{margin:0;font-size:14px}
 @media (max-width:760px){.bsum,.bgrid{grid-template-columns:1fr}}
+
+.bud{padding-block:96px 64px}
+.bud h1{font-size:clamp(34px,5vw,52px);font-weight:800}
+.bsec{margin-top:52px}
+.bsec h2{font-size:26px;margin-bottom:16px}
+.blist{display:grid;gap:12px}
+.bi{display:grid;grid-template-columns:52px 1fr 230px;gap:18px;align-items:start;border:1px solid var(--line);border-radius:16px;padding:20px;background:#fff;transition:opacity .6s, transform .6s, translate .25s, box-shadow .25s}
+.bi:hover{translate:0 -2px;box-shadow:0 12px 28px rgba(30,42,50,.08)}
+.bic{width:52px;height:52px;border-radius:14px;background:var(--p1-t);display:grid;place-items:center}
+.bic svg{width:26px;height:26px}.bic svg *{fill:none;stroke:var(--p1);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.bt h3{font-size:17px}.bt p{margin:6px 0 0;font-size:14.5px;color:var(--muted)}
+.def{margin-top:10px;font-size:13.5px;background:#F6F8F9;border-radius:10px;padding:10px 12px}
+.def b{color:var(--p1)}
+.note{display:block;margin-top:8px;font-size:12.5px;color:var(--muted)}
+.bc{text-align:right;display:grid;gap:2px;align-content:start}
+.bc b{font:800 22px var(--display);font-variant-numeric:tabular-nums;color:var(--ink)}
+.bc span{font-size:13px;color:var(--muted)}
+.blater{margin-top:16px;border:1px dashed #C9D2D7;border-radius:16px;padding:18px 20px}
+.blater h3{font-size:15px;margin-bottom:10px;color:var(--muted)}
+.blgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.bl{background:#F6F8F9;border-radius:12px;padding:12px 14px;display:grid;gap:2px}
+.bl b{font-size:14px}.bl span{font-size:13px;color:var(--muted)}
+.fee{border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff}
+.feehead{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;background:var(--ink);color:#fff;padding:22px 24px}
+.feehead h3{font-size:18px}.feehead p{margin:6px 0 0;font-size:14px;color:#B9C3C9}
+.feehead .bc b{color:#fff;font-size:26px}.feehead .bc span{color:#B9C3C9}
+.feegrid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;padding:22px 24px}
+.feegrid h4{font:700 14px var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--p1);margin:0 0 10px}
+.feegrid ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px}
+.feegrid li{display:flex;gap:10px}
+.feegrid li::before{content:"";flex:0 0 16px;height:16px;margin-top:2px;border-radius:50%;background:var(--p1-t);box-shadow:inset 0 0 0 4px var(--p1-t),inset 0 0 0 8px var(--p1)}
+.meet{background:var(--p1-t);border-radius:14px;padding:16px 18px}
+.meet p{margin:0 0 8px;font-size:14px}.meet p:last-child{margin:0}
+.sgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.sf{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff;display:grid;gap:8px;align-content:start;border-top:4px solid var(--deep);transition:opacity .6s, transform .6s, translate .25s, box-shadow .25s}
+.sf:hover{translate:0 -3px;box-shadow:0 12px 28px rgba(30,42,50,.08)}
+.sn{font:800 13px var(--display);color:var(--deep);letter-spacing:.08em}
+.sf h3{font-size:17px}.sf p{margin:0;font-size:14px;color:var(--muted)}
+.kp{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.kp span{font-size:12.5px;border-radius:999px;padding:4px 10px;background:var(--tint);color:var(--ink)}
+@media (max-width:760px){.bi{grid-template-columns:44px 1fr}.bic{width:44px;height:44px}.bi .bc{grid-column:2;text-align:left}.blgrid,.sgrid,.feegrid{grid-template-columns:1fr}.feehead{flex-direction:column}.feehead .bc{text-align:left}}
 </style>
 </head>
 <body>
 
 
 <div class="prog" aria-hidden="true"><i></i></div><nav class="dots" id="dots" aria-label="Sections"></nav>
-<div class="tabs" role="tablist"><button type="button" role="tab" data-view="roadmap" class="on">Roadmap</button><button type="button" role="tab" data-view="resources">Resources</button></div>
+<div class="tabs" role="tablist"><button type="button" role="tab" data-view="roadmap" class="on">Roadmap</button><button type="button" role="tab" data-view="budget">Budget</button><button type="button" role="tab" data-view="resources">Resources</button></div>
 <main id="v-roadmap">
 <section class="screen hero">
   <div class="wrap">
@@ -401,62 +442,36 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
   </div>
 </section>
 
-<section class="screen" data-anim id="budget-sec">
-  <div class="wrap">
-    <h2 class="ai">Your budget, year 1</h2>
-    <p class="intro ai" style="--i:1">Built on your choices. Amounts in AED, before VAT.</p>
+<footer class="wrap">Dr. Manal Adi · Digital presence roadmap</footer>
+</main>
+<main id="v-budget" hidden>
+  <div class="wrap bud">
+    <h1>Your budget</h1>
+    <p class="intro">Everything we will produce for you, and what each part costs. Amounts in AED, before VAT.</p>
 
-    <div class="bsum">
-      <div class="bcard ai" style="--i:2"><span>Most months</span><b>AED 5,000</b><small>Our fee and paid ads</small></div>
-      <div class="bcard ai" style="--i:3"><span>Shoot months: 4, 7, 10</span><b>AED 6,500</b><small>Plus one studio shoot</small></div>
-      <div class="bcard dark ai" style="--i:4"><span>Year 1 total</span><b>AED 66,750 to 67,300</b><small>Depending on the final logo cost</small></div>
-    </div>
+    <section class="bsec" data-anim>
+      <h2 class="ai">What you get, and what it costs</h2>
+      <div class="blist"><div class="bi ai" style="--i:2"><div class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.3-2.3 3.2-3.5 5.5-3.5s4.2 1.2 5.5 3.5"/></svg></div><div class="bt"><h3>Brand identity and photography</h3><p>Your full brand identity: logo, colours and brand elements, plus a professional photoshoot of you.</p><div class="def"><b>Photography</b> means still photos: your portraits and brand images for the website, your profiles and posts.</div><small class="note">Can be less, depending on the number of revisions.</small></div><div class="bc"><b>AED 1,500 to 2,000</b><span>once, in Phase 1</span></div></div><div class="bi ai" style="--i:3"><div class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div><div class="bt"><h3>Videography: studio sessions</h3><p>One studio session every 3 months, with at least 30 short videos each time for your platforms.</p><div class="def"><b>Videography</b> means filmed content. Each session covers the studio and filming (AED 1,500), plus editing of up to 20% more.</div></div><div class="bc"><b>AED 1,500 to 1,800</b><span>per session, every 3 months</span></div></div><div class="bi ai" style="--i:4"><div class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg></div><div class="bt"><h3>Paid ads</h3><p>Ads that put your content in front of parents in Dubai and across the UAE.</p><small class="note">AED 1,000 in the first month.</small></div><div class="bc"><b>AED 2,000</b><span>a month, from week 3</span></div></div><div class="bi ai" style="--i:5"><div class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z"/></svg></div><div class="bt"><h3>Website domain</h3><p>Your own web address, registered for 5 years.</p></div><div class="bc"><b>AED 250 to 300</b><span>once, for 5 years</span></div></div><div class="bi ai" style="--i:6"><div class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.5h.01M8 16.5h.01"/></svg></div><div class="bt"><h3>Website hosting</h3><p>Where your website lives online.</p></div><div class="bc"><b>Free</b><span>in year 1</span></div></div></div>
+      <div class="blater ai" style="--i:7"><h3>Priced when we reach them</h3><div class="blgrid"><div class="bl"><b>PR agency</b><span>From Phase 3</span></div><div class="bl"><b>Venue for in-person workshops</b><span>When workshops start</span></div><div class="bl"><b>Parent app</b><span>Later, to be discussed</span></div></div></div>
+    </section>
 
-    <div class="btable ai" style="--i:5"><table>
-      <thead><tr><th>Month</th><th>Our fee</th><th>Studio shoot</th><th>Paid ads</th><th>Logo</th><th>Domain</th><th>Total</th></tr></thead>
-      <tbody><tr class="shoot"><td>Month 1</td><td>3,000</td><td>1,500</td><td>1,000</td><td>1,500 to 2,000</td><td>250 to 300</td><td><b>7,250 to 7,800</b></td></tr><tr><td>Month 2</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 3</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr class="shoot"><td>Month 4</td><td>3,000</td><td>1,500</td><td>2,000</td><td></td><td></td><td><b>6,500</b></td></tr><tr><td>Month 5</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 6</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr class="shoot"><td>Month 7</td><td>3,000</td><td>1,500</td><td>2,000</td><td></td><td></td><td><b>6,500</b></td></tr><tr><td>Month 8</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 9</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr class="shoot"><td>Month 10</td><td>3,000</td><td>1,500</td><td>2,000</td><td></td><td></td><td><b>6,500</b></td></tr><tr><td>Month 11</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr><tr><td>Month 12</td><td>3,000</td><td></td><td>2,000</td><td></td><td></td><td><b>5,000</b></td></tr></tbody>
-      <tfoot><tr><td>Year 1</td><td>36,000</td><td>6,000</td><td>23,000</td><td>1,500 to 2,000</td><td>250 to 300</td><td><b>66,750 to 67,300</b></td></tr></tfoot>
-    </table></div>
+    <section class="bsec" data-anim>
+      <h2 class="ai">Management fee</h2>
+      <div class="fee ai" style="--i:1">
+        <div class="feehead"><div><h3>Strategy, management and execution</h3><p>Our team runs your digital presence from day one.</p></div><div class="bc"><b>AED 3,000</b><span>a month</span></div></div>
+        <div class="feegrid">
+          <div><h4>What it covers</h4><ul><li>Setting up and running your accounts</li><li>Paid ads management</li><li>SEO for your website and profiles</li><li>Building your website, using AI tools where they help</li><li>Content writing: your ideas, written by a content writer under our supervision</li><li>Directing your brand identity, logo and photoshoot</li><li>Directing your studio sessions and the editing</li><li>A monthly report on results</li></ul></div>
+          <div class="meet"><h4>Our weekly meeting</h4><p>Two hours every week to review results and plan what comes next.</p><p>If a meeting is cancelled, its hours are kept as credit. We use them for extra work, or for urgent meetings when we need to discuss a change or a new step.</p></div>
+        </div>
+      </div>
+    </section>
 
-    <div class="bgrid">
-      <div class="bbox ai" style="--i:6">
-        <h3>Our fee, AED 3,000 a month, covers</h3>
-        <ul>
-          <li>Setting up and running your accounts</li>
-          <li>Paid ads management and SEO</li>
-          <li>Building your website, with the AI tools we need</li>
-          <li>Writing your content from your ideas, with a content writer under our supervision</li>
-          <li>Directing your brand identity and logo</li>
-          <li>Directing your studio shoots and the editing</li>
-        </ul>
-      </div>
-      <div class="bbox ai" style="--i:7">
-        <h3>How each cost works</h3>
-        <ul>
-          <li><b>Studio shoot:</b> AED 1,500 every 3 months, at least 30 videos each time</li>
-          <li><b>Paid ads:</b> AED 2,000 a month, starting in week 3, so AED 1,000 in month 1</li>
-          <li><b>Logo:</b> AED 1,500 to 2,000 once, and it can be less depending on the revisions</li>
-          <li><b>Domain:</b> 5 years paid once. Hosting is free in year 1</li>
-        </ul>
-      </div>
-      <div class="bbox ai" style="--i:8">
-        <h3>Not included yet</h3>
-        <ul>
-          <li>Video editing, cost to be set</li>
-          <li>PR agency, from Phase 3</li>
-          <li>Venue for in-person workshops</li>
-          <li>Parent app, planned for later</li>
-        </ul>
-      </div>
-      <div class="bbox ai" style="--i:9">
-        <h3>Our weekly meeting</h3>
-        <p>Two hours every week. If a meeting is cancelled, its hours are kept as credit: extra work, or urgent meetings when we need to discuss a change or a new step.</p>
-      </div>
-    </div>
+    <section class="bsec" data-anim>
+      <h2 class="ai">What success looks like</h2>
+      <p class="intro ai" style="--i:1">Five success factors. In the first two weeks we set clear KPIs for each one, using your current numbers as the starting point, and we report on them every month.</p>
+      <div class="sgrid"><div class="sf ai" style="--i:2;--deep:var(--p2);--tint:var(--p2-t)"><span class="sn">01</span><h3>Awareness in the UAE</h3><p>Parents across the UAE know your name and your approach.</p><div class="kp"><span>Reach</span><span>Follower growth</span><span>Profile visits</span></div></div><div class="sf ai" style="--i:3;--deep:var(--p1);--tint:var(--p1-t)"><span class="sn">02</span><h3>Trust and engagement</h3><p>Parents save, share and ask about your content.</p><div class="kp"><span>Saves</span><span>Shares</span><span>Comments and messages</span></div></div><div class="sf ai" style="--i:4;--deep:var(--p1);--tint:var(--p1-t)"><span class="sn">03</span><h3>Patient acquisition</h3><p>More families choose you as their pediatrician.</p><div class="kp"><span>Booking enquiries</span><span>WhatsApp messages</span><span>Website bookings</span></div></div><div class="sf ai" style="--i:5;--deep:var(--p3);--tint:var(--p3-t)"><span class="sn">04</span><h3>An audience you own</h3><p>Parents follow you directly, not only through the platforms.</p><div class="kp"><span>Newsletter subscribers</span><span>WhatsApp Channel followers</span></div></div><div class="sf ai" style="--i:6;--deep:var(--p4);--tint:var(--p4-t)"><span class="sn">05</span><h3>Business attention</h3><p>Healthcare businesses and partners notice your patient base.</p><div class="kp"><span>Partnership enquiries</span><span>Media mentions</span><span>LinkedIn engagement</span></div></div></div>
+    </section>
   </div>
-</section>
-
-<footer class="wrap">All amounts in AED, before VAT.</footer>
 </main>
 <main id="v-resources" hidden>
   <div class="wrap res">
@@ -664,21 +679,26 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:12.5px}
   }
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  /* tabs: Roadmap / Resources */
-  var vR = document.getElementById('v-roadmap'), vS = document.getElementById('v-resources'), tabBtns = document.querySelectorAll('.tabs button');
+  /* tabs: Roadmap / Budget / Resources */
+  var views = {roadmap: document.getElementById('v-roadmap'), budget: document.getElementById('v-budget'), resources: document.getElementById('v-resources')}, tabBtns = document.querySelectorAll('.tabs button');
   function view(v){
-    var res = v === 'resources';
-    vR.hidden = res; vS.hidden = !res;
-    dots.style.display = res ? 'none' : '';
-    document.querySelector('.prog').style.display = res ? 'none' : '';
-    document.documentElement.style.scrollSnapType = res ? 'none' : '';
+    if (!views[v]) v = 'roadmap';
+    var other = v !== 'roadmap';
+    Object.keys(views).forEach(function(k){ views[k].hidden = k !== v; });
+    dots.style.display = other ? 'none' : '';
+    document.querySelector('.prog').style.display = other ? 'none' : '';
+    document.documentElement.style.scrollSnapType = other ? 'none' : '';
     tabBtns.forEach(function(b){ var on = b.getAttribute('data-view') === v; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
     window.scrollTo(0, 0);
-    if (!res) onScroll();
+    if (!other) onScroll();
+    if (v === 'budget') views.budget.querySelectorAll('[data-anim]').forEach(function(el){
+      if (el.getBoundingClientRect().top > innerHeight * 0.6 && !el.classList.contains('in')) { el.classList.add('armed'); if (window.budgetIO) budgetIO.observe(el); }
+    });
   }
-  tabBtns.forEach(function(b){ b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try { history.replaceState(null, '', v === 'resources' ? '#resources' : '#'); } catch(e){} view(v); }); });
-  addEventListener('hashchange', function(){ view(location.hash === '#resources' ? 'resources' : 'roadmap'); });
-  if (location.hash === '#resources') view('resources');
+  if ('IntersectionObserver' in window) window.budgetIO = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); budgetIO.unobserve(e.target); } }); }, {threshold:0.15});
+  tabBtns.forEach(function(b){ b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try { history.replaceState(null, '', v === 'roadmap' ? '#' : '#' + v); } catch(e){} view(v); }); });
+  addEventListener('hashchange', function(){ view(location.hash.slice(1) || 'roadmap'); });
+  if (location.hash === '#resources' || location.hash === '#budget') view(location.hash.slice(1));
 
   /* timeline segments jump to their phase */
   document.querySelectorAll('rect[data-go]').forEach(function(r){
